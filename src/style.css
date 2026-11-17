@@ -1,0 +1,194 @@
+/* tengeri.mal.ac — styles. JS only toggles classes, nothing is styled inline. */
+
+:root {
+    --bg: black;
+    --fg: white;
+    --accent: #ff9a44;
+    --accent-strong: #ffb36c;
+    --accent-soft: rgba(255, 154, 68, 0.08);
+    --accent-hover: rgba(255, 154, 68, 0.15);
+    --panel-bg: rgba(0, 0, 0, 0.85);
+    --panel-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.5);
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base */
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font);
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 1rem .5rem;
+}
+
+/* Media */
+
+video, #gif {
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 720px) {
+    video, #gif {
+        height: auto;
+    }
+}
+
+body.txt video, body.txt #gif {
+    max-height: 90vh;
+}
+
+/* Timer */
+
+h2.paused {
+    color: var(--accent-strong);
+}
+
+h2 .state {
+    display: inline-block;
+    margin-left: 0.75em;
+    padding: 0.15em 0.5em;
+    border-radius: 4px;
+    background: var(--accent-hover);
+    color: var(--accent-strong);
+    font-size: 0.6em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+}
+
+h2 .state:empty {
+    display: none;
+}
+
+/* Help panel */
+
+aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+aside.show {
+    display: flex;
+}
+
+aside .wrap {
+    display: inline-block;
+    padding: 2em 2.5em;
+    background: var(--panel-bg);
+    color: var(--fg);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-radius: 8px;
+    box-shadow: var(--panel-shadow);
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+aside .wrap p {
+    margin: 1.25em 0;
+}
+
+aside .wrap p:first-child {
+    margin-top: 0;
+}
+
+aside .wrap p:last-child {
+    margin-bottom: 0;
+}
+
+aside a {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+aside a:hover {
+    background: var(--accent-hover);
+    color: var(--accent-strong);
+}
+
+aside input[type="file"] {
+    display: none;
+}
+
+aside input[type="file"] + label {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    padding: 0.4em 0.8em;
+    border-radius: 4px;
+    background: var(--accent-soft);
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+aside input[type="file"] + label:hover {
+    background: var(--accent-hover);
+}
+
+#helpbutton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: var(--fg);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#helpbutton.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+#helpbutton:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--panel-bg);
+    color: var(--fg);
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    font-size: 1rem;
+    z-index: 9999;
+    pointer-events: none;
+}

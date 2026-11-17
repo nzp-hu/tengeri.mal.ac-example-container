@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>o_o</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta property="og:title" content="Tengeri malac." />
+        <meta property="og:type" content="video.movie" />
+        <meta property="og:url" content="http://tengeri.mal.ac" />
+        <meta property="og:image" content="http://tengeri.mal.ac/tengeri.mal.ac.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="210" />
+        <meta property="og:image:height" content="210" />
+        <meta property="og:site_name" content="Mal.ac" />
+
+        <link rel="stylesheet" href="style.css">
+
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <div id="txt"></div>
+        <video autoplay loop muted playsinline poster="poster.png">
+            <source src="tm.mp4" type="video/mp4">
+            <source src="tm.gif" type="image/gif">
+            <img id="gif" src="tm.gif" alt="Tengeri malac.">
+        </video>
+
+        <button id="helpbutton">?</button>
+
+        <aside id="help">
+            <div class="wrap">
+                <p>
+                    Text heading
+                    <br>
+                    <a href="#some text">#some text</a>
+                </p>
+                <p>
+                    Countdown timer (minutes)
+                    <br>
+                    <a href="?timer=5">?timer=5</a>
+                </p>
+                <p>
+                    Count up timer
+                    <br>
+                    <a href="?timer=0">?timer=0</a>
+                </p>
+                <p>
+                    Countdown to date (ISO8601 format)
+                    <br>
+                    <a href="?countdown=2031-12-31T12:34:56">?countdown=2031-12-31T12:34:56</a>
+                </p>
+                <p>
+                    Countdown timer end sound
+                    <br>
+                    <input type="file" id="timerendinput"/>
+                    <label for="timerendinput">Choose audio file</label>
+                </p>
+                <p>
+                    Combo (any timer with text heading)
+                    <br>
+                    <a href="?timer=5#Waiting for people to join the meeting">?timer=5#Waiting for people to join the meeting</a>
+                </p>
+                <p>
+                    Pause/resume timer
+                    <br>
+                    Press <code>p</code> or <code>space</code> to pause/resume<br>
+                    Shows <code>PAUSED</code> next to the timer
+                </p>
+                <p>
+                    Extend timer (+/- 10 sec)
+                    <br>
+                    Press <code>+</code> or <code>=</code> to add 10 seconds<br>
+                    Press <code>-</code> to subtract 10 seconds
+                </p>
+            </div>
+        </aside>
+    </body>
+</html>
